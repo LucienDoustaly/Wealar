@@ -61,7 +61,7 @@ ionic g page home
 ```
 
 ### Description of the different folder
-* __[platforms]__(https://ionicframework.com/docs/cli/cordova/platform/): configuration of the differents platform generate automatically:
+* [platforms](https://ionicframework.com/docs/cli/cordova/platform/): configuration of the differents platform generate automatically:
 ```
 ionic cordova add platform Android|ios|windows
 ```
