@@ -54,27 +54,27 @@ ionic g page home
 ```
 
 ### Description of the different folder
-*platforms: configuration of the differents platform generate automatically: https://ionicframework.com/docs/cli/cordova/platform/
+* [platforms](https://ionicframework.com/docs/cli/cordova/platform/): configuration of the differents platform generate automatically:
 ```
 ionic cordova add platform Android|ios|windows
 ```
-*plugins: the differents cordova plugin add to the project
-*ressources: default loading imgs for platforms
-*src: the most important folder with the code pour the app
-**app: regroup the declarations files
-***app.component.ts: declaration of rootPage and what to do when the platform is ready
-***app.module.ts: this is the brain of the code which will make the connexion between each other
-**assets: ressources for the app imgs, icon, json or whatever
-**page: this folder contains the code for all the differents pages of our app including html, css and js adapt with typescrit
-**providers: the provider can share information to a lots of pages and keep these information in memory in contrary, pages will reset all variable when it is leave
-**theme: colors of the theme of the app is define here and can be call wherever
-*www: the build create to launch the app: https://ionicframework.com/docs/cli/cordova/build/
+* plugins: the differents cordova plugin add to the project
+* ressources: default loading imgs for platforms
+* src: the most important folder with the code pour the app
+`* app: regroup the declarations files`
+* `* app.component.ts: declaration of rootPage and what to do when the platform is ready`
+* `* app.module.ts: this is the brain of the code which will make the connexion between each other`
+`* assets: ressources for the app imgs, icon, json or whatever`
+`* page: this folder contains the code for all the differents pages of our app including html, css and js adapt with typescrit`
+`* providers: the provider can share information to a lots of pages and keep these information in memory in contrary, pages will reset all variable when it is leave`
+`* theme: colors of the theme of the app is define here and can be call wherever`
+* www: the [build](https://ionicframework.com/docs/cli/cordova/build/) create to launch the app:
 ```
 ionic cordova build Android|ios|windows
 ```
-*config.xml: Declaration of name, description, author and preferencies for the application
-*package/package-lock.json: npm dependencies
-*tsconfig/tslint.json: typescript configuration
+* config.xml: Declaration of name, description, author and preferencies for the application
+* package/package-lock.json: npm dependencies
+* tsconfig/tslint.json: typescript configuration
 
 
 
