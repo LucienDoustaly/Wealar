@@ -85,10 +85,10 @@ ionic cordova build Android|ios|windows
 
 
 ### Sources
-[Ionic Doc](https://ionicframework.com/docs/): For most of the parts I find documentation here, for components or ionic API
-[Agular Doc](https://angular.io/docs):For technical javascript code I look in the angular documentation, like for the observable, promise or HttpClient
+* [Ionic Doc](https://ionicframework.com/docs/): For most of the parts I find documentation here, for components or ionic API
+* [Agular Doc](https://angular.io/docs):For technical javascript code I look in the angular documentation, like for the observable, promise or HttpClient
 
-[Login](https://devdactic.com/login-ionic-2/): Only for the login I used this good template. But this version was for Ionic 2 and Angular 2. So, I have to adapt some parts and create all the connexion code to our API
+* [Login](https://devdactic.com/login-ionic-2/): Only for the login I used this good template. But this version was for Ionic 2 and Angular 2. So, I have to adapt some parts and create all the connexion code to our API
 
 
 
