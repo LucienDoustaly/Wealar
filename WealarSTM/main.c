@@ -136,27 +136,36 @@ void main() {
           time_out_cnt++;
         break;
 
+      // Waiting for an information to be sent via Wifi (alarm on/off, presence detection, weather data)
       case COLLECTING_DATA:
-        if (!g__collecting_data && !weather_finished_collecting())
+        if (!g__collecting_data && !weather_finished_collecting()) // Starts the weather data gathering if not already started (in production mode: synchronize data collection on a timer)
           weather_start_data_collecting();
 
+        // If the system is ready to send an information via Wifi
+        //    -> The alarm has just been activated
+        //    -> The alarm has just been deactivated
+        //    -> The system detected a presence near the house
+        //    -> Finished gathering weather data
         if (g__alarm_activated || g__alarm_desactivated || g__alert_presence || weather_finished_collecting()) {
           request_rst(&request);
+
+          // We first format the string HTTP request to be sent via Wifi
           format_request(&request, ((g__alarm_desactivated) ? POST_ALARM_OFF : ((g__alarm_activated) ? POST_ALARM_MODE : ((g__alert_presence) ? POST_PRESENCE : POST_WEATHER))));
           state = (need_tcp_connection) ? TCP_CONNECTION : CONFIGURE_MESSAGE;
         }
         break;
 
+      // TCP Connection with the API Server of Wealar
       case TCP_CONNECTION:
         wifi_module_tcp_connection();
         wifi_tempo(LONG_TEMPO);
 
-        if (g__data_end_bool) {
+        if (g__data_end_bool) { // Received "OK" from the Wifi module, we can start sending the request
           time_out_cnt = TIME_OUT_RST;
           need_tcp_connection = false;
           state = CONFIGURE_MESSAGE;
         }
-        else if (time_out_cnt >= TIME_OUT_LIMIT) {
+        else if (time_out_cnt >= TIME_OUT_LIMIT) { // No response, and timeout reached: we go back to setting (checking) wifi connection
           time_out_cnt = TIME_OUT_RST;
           state = WIFI_CONNECTION;
         }
@@ -164,15 +173,16 @@ void main() {
           time_out_cnt++;
         break;
 
+      // First part of the request: configuration information about the request (size)
       case CONFIGURE_MESSAGE:
         wifi_module_send_request_config(&request);
         wifi_tempo(DEFAULT_TEMPO);
 
-        if (g__data_end_bool) {
+        if (g__data_end_bool) { // Received "OK" from the Wifi module, now we can send the request
           time_out_cnt = TIME_OUT_RST;
           state = SENDING_MESSAGE;
         }
-        else if (time_out_cnt >= TIME_OUT_LIMIT) {
+        else if (time_out_cnt >= TIME_OUT_LIMIT) { // No response, and timeout reached: we go back to setting (checking) TCP connection to the API Server of Wealar
           time_out_cnt = TIME_OUT_RST;
           state = TCP_CONNECTION;
         }
@@ -180,11 +190,12 @@ void main() {
           time_out_cnt++;
         break;
 
+      // Second part of the request: sending the actual request
       case SENDING_MESSAGE:
         wifi_module_send_request_message(&request);
         wifi_tempo(LONG_TEMPO);
 
-        if (g__data_end_bool) {
+        if (g__data_end_bool) { // Received "OK" from the Wifi module, we re-initialize the variables used to send the message and go back to collecting data
           time_out_cnt = TIME_OUT_RST;
           state = COLLECTING_DATA;
 
@@ -206,7 +217,7 @@ void main() {
               break;
           }
         }
-        else if (time_out_cnt >= TIME_OUT_LIMIT) {
+        else if (time_out_cnt >= TIME_OUT_LIMIT) { // No response, and timeout reached: we go back to setting (checking) TCP connection to the API Server of Wealar
           time_out_cnt = TIME_OUT_RST;
           state = TCP_CONNECTION;
         }
@@ -214,6 +225,7 @@ void main() {
           time_out_cnt++;
         break;
 
+      // Default case, never suppose to happen: we go back to the program initialization (just in case)
       default:
         state = START;
         time_out_cnt = TIME_OUT_RST;
@@ -222,6 +234,7 @@ void main() {
   }
 }
 
+// System initialization (Reset and Clock initialization of STM32)
 void sys_init() {
   RCC->CR = RCC_CR_HSION;
 
@@ -235,6 +248,7 @@ void sys_init() {
   SystemCoreClockUpdate();
 }
 
+// Initialization of the program (GPIOs, Timers, etc.)
 void program_init() {
   timers_init();
   WIFI_init();
