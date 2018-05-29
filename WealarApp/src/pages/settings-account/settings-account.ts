@@ -12,7 +12,7 @@ export class SettingsAccountPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public auth:AuthServiceProvider) {}
 
-  ionViewWillEnter() {
+  ionViewWillEnter() {//Do something before show the page
     let info = this.auth.getUserInfo();
     this.userCredentials.username = info['username'];
     this.userCredentials.userphone = info['phone'];
