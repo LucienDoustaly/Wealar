@@ -8,7 +8,7 @@ import { SettingsPage } from '../settings/settings';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
+  
   tab1Root = HomePage;
   tab2Root = AlarmPage;
   tab4Root = SettingsPage;

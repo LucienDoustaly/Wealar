@@ -15,9 +15,9 @@ export class LoginPage {
 
   constructor(private nav: NavController, private auth: AuthServiceProvider, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
 
-  public createAccount() {
+  /* public createAccount() {
     this.nav.push(RegisterPage);
-  }
+  } */
 
   public login() {
     this.showLoading('Connection attempt');

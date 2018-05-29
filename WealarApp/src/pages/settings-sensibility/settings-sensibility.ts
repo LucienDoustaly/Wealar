@@ -14,7 +14,7 @@ export class SettingsSensibilityPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public settingsProvider: SettingsProvider) {
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter() {//Do something before show the page
     console.log("SettingsProvider activeMode:",this.settingsProvider.activemode);
     this.activemode=this.settingsProvider.activemode;
     this.mode=this.convertActivemode(this.settingsProvider.activemode);
