@@ -1,4 +1,4 @@
-![Wealar logo](./WEALAR_LOGO.png?raw=true)
+![](./WEALAR_LOGO.png?raw=true)
 
 # WEALAR
 
