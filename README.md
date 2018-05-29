@@ -1,4 +1,4 @@
-![](./https://image.noelshack.com/fichiers/2018/22/2/1527629284-wealar-logo.png?raw=true)
+![](https://image.noelshack.com/fichiers/2018/22/2/1527629284-wealar-logo.png)
 
 # WEALAR
 
