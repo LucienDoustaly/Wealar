@@ -1,3 +1,5 @@
+![Ionic logo](https://ionicframework.com/img/meta/ionic-framework-og.png)
+
 # WEALAR APP
 
 The app for our connecting alarm / meteo station control with STM32

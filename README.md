@@ -1,3 +1,5 @@
+![Wealar logo](./WEALAR_LOGO.png)
+
 # WEALAR
 
 Wealar is a remote connected alarm with a weather station which can allow you to get information of your home​.
