@@ -22,21 +22,6 @@ What things you need to install the software and how to install them
 ```
 https://nodejs.org/en/
 ```
-
-#### How to install Cordova
-
-```
-Windows : C:\>npm install -g cordova
-Linux : $ sudo npm install -g cordova
-```
-
-#### How to install Ionic
-
-```
-Windows :	C:\>npm install -g ionic
-Linux : $ sudo npm install -g ionic
-```
-
 #### How to install Cordova and Ionic
 
 ```
@@ -56,6 +41,7 @@ ionic start myApp tabs|blank|sidemenu|empty
 
 ```
 cd myApp
+npm install
 ionic serve -l
 ```
 
@@ -67,42 +53,35 @@ ionic g provider authService
 ionic g page home
 ```
 
-## Git
-
-### Preparation
-
+### Description of the different folder
+*platforms: configuration of the differents platform generate automatically: https://ionicframework.com/docs/cli/cordova/platform/
 ```
-git init 
-touch .ignore
-touch readme.md
+ionic cordova add platform Android|ios|windows
 ```
-
-### Use
-
-Make sure you are at the root of the project
-
-#### How to use git
-
+*plugins: the differents cordova plugin add to the project
+*ressources: default loading imgs for platforms
+*src: the most important folder with the code pour the app
+**app: regroup the declarations files
+***app.component.ts: declaration of rootPage and what to do when the platform is ready
+***app.module.ts: this is the brain of the code which will make the connexion between each other
+**assets: ressources for the app imgs, icon, json or whatever
+**page: this folder contains the code for all the differents pages of our app including html, css and js adapt with typescrit
+**providers: the provider can share information to a lots of pages and keep these information in memory in contrary, pages will reset all variable when it is leave
+**theme: colors of the theme of the app is define here and can be call wherever
+*www: the build create to launch the app: https://ionicframework.com/docs/cli/cordova/build/
 ```
-To have status of file : git status
-To track file : git add .
-First commit : git commit -m "Initial commit"
-To take into account the modifications : git commit -a -m "updated readme"
+ionic cordova build Android|ios|windows
 ```
+*config.xml: Declaration of name, description, author and preferencies for the application
+*package/package-lock.json: npm dependencies
+*tsconfig/tslint.json: typescript configuration
 
-#### How to push your code to git
 
-```
-HTTPS : git remote add origin https://github.com/LucienDoustaly/WealarApp.git
-SSH : git@github.com:LucienDoustaly/WealarApp.git
-How to configure ssh : https://help.github.com/articles/connecting-to-github-with-ssh/
 
-Push your code : git push -u origin master
-```
 
-#### Add tags (version)
+### Sources
+For most of the parts I find documentation on ionic official doc: https://ionicframework.com/docs/ or on the Angular official doc: https://angular.io/docs
+Only for the login I used a good template here : https://devdactic.com/login-ionic-2/
+But this version was for Ionic 2 and Angular 2
+I have to adapt some parts and create all the connexion code to our API
 
-```
-git tag v0.1
-git push origin v0.1
-```
