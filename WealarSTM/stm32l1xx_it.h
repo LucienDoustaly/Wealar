@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    Project/STM32L1xx_StdPeriph_Templates/stm32l1xx_it.h 
+  * @file    Project/STM32L1xx_StdPeriph_Templates/stm32l1xx_it.h
   * @author  MCD Application Team
   * @version V1.2.0
   * @date    16-May-2014
@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -31,7 +31,7 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif 
+#endif
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l1xx.h"
@@ -52,6 +52,7 @@ void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
 
+// New interruptions handled
 void TIM3_IRQHandler();
 void TIM4_IRQHandler();
 void TIM6_IRQHandler();
