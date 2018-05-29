@@ -1,11 +1,18 @@
 #include "stm32l1xx_nucleo.h"
 #include "../headers/ADC.h"
 
+/**
+  * ######################################################
+  * Initialization & Configuration of the ADC
+  * ######################################################
+  */
+
 void ADC_init() {
   ADC_config_init();
   ADC_interruption_init();
 }
 
+// Initialization & Configuration of the ADC
 void ADC_config_init() {
   RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
 
@@ -14,7 +21,7 @@ void ADC_config_init() {
   ADC->CCR |= ADC_CCR_ADCPRE_1;
   ADC->CCR &= ~ADC_CCR_ADCPRE_0;
 
-  // Number of conversions (0001 -> 2 conversions)
+  // Number of conversions (0001 -> 3 conversions)
   ADC1->SQR1 &= ~ADC_SQR1_L;
   ADC1->SQR1 |= ADC_SQR1_L_1;
 
@@ -27,7 +34,7 @@ void ADC_config_init() {
   ADC1->SQR5 &= ~ADC_SQR5_SQ2;
   ADC1->SQR5 |= (ADC_SQR5_SQ2_0 | ADC_SQR5_SQ2_1 | ADC_SQR5_SQ2_3);
   RI->ASCR1 |= RI_ASCR1_CH_11;
-  
+
   // 3nd conversion: PA0 --> ADC_IN0 (Group 1 / CH0)
   ADC1->SQR5 &= ~ADC_SQR5_SQ3;
   RI->ASCR1 |= RI_ASCR1_CH_0;
@@ -51,13 +58,20 @@ void ADC_config_init() {
   while ((ADC1->SR & ADC_SR_ADONS) == 0);
 }
 
+// Initialization of ADC interruption, when a conversion is finished
 void ADC_interruption_init() {
-  // Processor Interruption N�18 -> ISER[0] / bit 18
+  // Processor Interruption N°18 -> ISER[0] / bit 18
   NVIC->ISER[0] |= (1<<18);
 
   // ADC activation of the end of conversion interruption
   ADC1->CR1 |= ADC_CR1_EOCIE;
 }
+
+/**
+  * ######################################################
+  * Start an ADC conversion
+  * ######################################################
+  */
 
 void ADC_start() {
   // Start the sequence of conversions

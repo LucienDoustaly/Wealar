@@ -3,9 +3,21 @@
 
 #include "../headers/utils.h"
 
+/**
+  * ######################################################
+  * Initialization & Configuration of the ADC
+  * ######################################################
+  */
+
 void ADC_init();
 void ADC_config_init();
 void ADC_interruption_init();
+
+/**
+  * ######################################################
+  * Start an ADC conversion
+  * ######################################################
+  */
 
 void ADC_start();
 
