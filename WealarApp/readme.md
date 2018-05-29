@@ -1,3 +1,5 @@
+![Ionic logo](https://ionicframework.com/img/meta/ionic-framework-og.png)
+
 # WEALAR APP
 
 The app for our connecting alarm / meteo station control with STM32
@@ -22,11 +24,17 @@ What things you need to install the software and how to install them
 ```
 https://nodejs.org/en/
 ```
-#### How to install Cordova and Ionic
+#### How to install Cordova and Ionic on your computer
 
 ```
-Windows :	C:\>npm install -g cordova ionic
+Windows : C:\> npm install -g cordova ionic
 Linux : $ sudo npm install -g cordova ionic
+```
+
+#### Don't forget to install node package at first
+
+```
+npm install
 ```
 
 ## Ionic
@@ -41,7 +49,6 @@ ionic start myApp tabs|blank|sidemenu|empty
 
 ```
 cd myApp
-npm install
 ionic serve -l
 ```
 
@@ -54,34 +61,36 @@ ionic g page home
 ```
 
 ### Description of the different folder
-*platforms: configuration of the differents platform generate automatically: https://ionicframework.com/docs/cli/cordova/platform/
+* __[platforms]__(https://ionicframework.com/docs/cli/cordova/platform/): configuration of the differents platform generate automatically:
 ```
 ionic cordova add platform Android|ios|windows
 ```
-*plugins: the differents cordova plugin add to the project
-*ressources: default loading imgs for platforms
-*src: the most important folder with the code pour the app
-**app: regroup the declarations files
-***app.component.ts: declaration of rootPage and what to do when the platform is ready
-***app.module.ts: this is the brain of the code which will make the connexion between each other
-**assets: ressources for the app imgs, icon, json or whatever
-**page: this folder contains the code for all the differents pages of our app including html, css and js adapt with typescrit
-**providers: the provider can share information to a lots of pages and keep these information in memory in contrary, pages will reset all variable when it is leave
-**theme: colors of the theme of the app is define here and can be call wherever
-*www: the build create to launch the app: https://ionicframework.com/docs/cli/cordova/build/
+* __plugins__: the differents cordova plugin add to the project
+* __ressources__: default loading imgs for platforms
+* __src__: the most important folder with the code pour the app
+    * __app__: regroup the declarations files
+        * *app.component.ts*: declaration of rootPage and what to do when the platform is ready
+    * __app.module.ts__: this is the brain of the code which will make the connexion between each other
+    * __assets__: ressources for the app imgs, icon, json or whatever
+    * __page__: this folder contains the code for all the differents pages of our app including html, css and js adapt with typescrit
+    * __providers__: the provider can share information to a lots of pages and keep these information in memory in contrary, pages will reset all variable when it is leave
+    * __theme__: colors of the theme of the app is define here and can be call wherever
+* __www__: the [build](https://ionicframework.com/docs/cli/cordova/build/) create to launch the app:
 ```
 ionic cordova build Android|ios|windows
 ```
-*config.xml: Declaration of name, description, author and preferencies for the application
-*package/package-lock.json: npm dependencies
-*tsconfig/tslint.json: typescript configuration
+* *config.xml*: Declaration of name, description, author and preferencies for the application
+* *package/package-lock.json*: npm dependencies
+* *tsconfig/tslint.json*: typescript configuration
 
 
 
 
 ### Sources
-For most of the parts I find documentation on ionic official doc: https://ionicframework.com/docs/ or on the Angular official doc: https://angular.io/docs
-Only for the login I used a good template here : https://devdactic.com/login-ionic-2/
-But this version was for Ionic 2 and Angular 2
-I have to adapt some parts and create all the connexion code to our API
+* [Ionic Doc](https://ionicframework.com/docs/): For most of the parts I find documentation here, for components or ionic API
+* [Agular Doc](https://angular.io/docs):For technical javascript code I look in the angular documentation, like for the observable, promise or HttpClient
+
+* [Login](https://devdactic.com/login-ionic-2/): Only for the login I used this good template. But this version was for Ionic 2 and Angular 2. So, I have to adapt some parts and create all the connexion code to our API
+
+
 
