@@ -1,0 +1,8 @@
+{
+  "name": "WealarApp",
+  "app_id": "8730e231",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

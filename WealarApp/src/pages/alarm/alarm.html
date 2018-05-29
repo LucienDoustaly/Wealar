@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Alarm
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingText="Pull to refresh..."
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <div *ngIf="alarmInfo">
+    <ion-card *ngIf="alarmInfo.new" style="border-radius:10px;" color="danger">
+      <img src="assets/imgs/box.png" />
+      <div class="card-presence">PRESENCE DETECTED !!!</div>
+      <div class="card-datealarm">At {{ alarmInfo.time }} on <br>{{ alarmInfo.date }}</div>
+    </ion-card>
+
+    <ion-card *ngIf="!alarmInfo.new" style="border-radius:10px;" color="secondary">
+      <img src="assets/imgs/box.png" />
+      <div class="card-presence">No presence detected</div>
+      <div class="card-datealarm">Since {{ alarmInfo.date }} at {{ alarmInfo.time }}</div>
+    </ion-card>
+  </div>
+
+  <ion-list>
+    <ion-card>
+        <button ion-item>
+            <ion-icon name="archive" item-start></ion-icon>
+            Logs
+        </button>
+    </ion-card>
+  </ion-list>
+
+  <ion-footer>
+    <div *ngIf="alarmInfo">
+      <button ion-button *ngIf="alarmInfo.new" color="danger" class="disconnect-button" (click)="ignorePresence()">Ignore alerte presence</button>
+      <button ion-button *ngIf="alarmInfo.activated" color="secondary" class="disconnect-button" (click)="doActivate()">Alarm STATUS : Activated</button>
+      <button ion-button *ngIf="!alarmInfo.activated" color="danger" class="disconnect-button" (click)="doDeactivate()">Alarm STATUS : Deactivated</button>
+    </div>
+      <p><strong>Tips: </strong>Swipe down to refresh !</p>
+  </ion-footer>
+
+</ion-content>

@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content class="card-background-page">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingText="Pull to refresh..."
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card style="border-radius:10px;" *ngIf="weatherList">
+      <img *ngIf="weatherList.night" src="assets/imgs/night.jpg"/>
+      <img *ngIf="!weatherList.night"src="assets/imgs/sun.jpg"/>
+    <div class="card-day">{{ weatherList.day }}</div>
+    <div class="card-date">{{ weatherList.date }}</div>
+  </ion-card>
+   
+  <ion-grid *ngIf="weatherList">
+      <ion-row>
+        <ion-col>
+            <ion-card style="border-radius:20px;">
+                <img src="assets/imgs/temperature.jpg"/>
+                <div class="card-center">{{ weatherList.temperature }}°C</div>
+            </ion-card>
+        </ion-col>
+        <ion-col>
+            <ion-card style="border-radius:20px;">
+                <img src="assets/imgs/humidity.jpg"/>
+                <div class="card-center">{{ weatherList.humidity }}%</div>
+                <div class="card-value">humidity</div>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+ <!-- 
+    -->
+
+  <!-- Pas le temps d'implémenter *ngIf="weatherList.humidity>=75" name="sunny"
+  <ion-list no-lines *ngFor="let weather of weatherList" value="weather" class="list">
+    <ion-card>
+        <button ion-item>
+            <ion-icon *ngIf="weather.humidity>=75" name="sunny" item-start></ion-icon>
+            {{ weather.day }} {{ weather.temperature }}°C {{ weather.humidity }}% d'humidité
+            <ion-icon *ngIf="weather.humidity<75" name="cloud" item-start></ion-icon>
+        </button>
+    </ion-card>
+  </ion-list>
+  -->
+
+  <ion-footer>
+    <p><strong>Tips: </strong>Swipe down to refresh !</p>
+  </ion-footer>
+
+  </ion-content>

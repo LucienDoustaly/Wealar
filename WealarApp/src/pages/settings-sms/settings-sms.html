@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>SMS Notification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+
+    <ion-item no-lines>
+      <ion-label>
+        <ion-icon name="chatbubbles" item-start></ion-icon> Activate sms notifications</ion-label>
+      <ion-toggle [(ngModel)]="smsNotification" (click)='setSmsMode()'></ion-toggle>
+    </ion-item>
+
+    <ion-card-content>
+        If you want to receive the notifications by sms, activate it here.
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

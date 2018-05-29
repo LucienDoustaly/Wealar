@@ -1,0 +1,30 @@
+
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>WELCOME</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="firstconnection">
+
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <ion-toolbar>
+      </ion-toolbar>
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+      <ion-toolbar>
+      </ion-toolbar>
+      <img src="assets/imgs/get-started.png" class="slide-image"/>
+      <h2 class="slide-title">Ready to Start?</h2>
+      <p>But firts you just need to set your personal information ;)</p>
+      <button ion-button large clear icon-end color="light" (click)='goTofirstCoInfo()'>
+        Continue
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

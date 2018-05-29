@@ -1,0 +1,10 @@
+{
+    "weather" :
+        {
+            "temperature": 18,
+            "humidity": 75,
+            "day":"vendredi",
+            "night": false,
+            "date":"25/05/2018"
+        }
+}   

@@ -1,0 +1,26 @@
+<ion-header>
+
+    <ion-navbar color="dark">
+      <ion-title>Weather Notification </ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content class="card-background-page">
+  
+    <ion-card>
+  
+      <ion-item no-lines>
+        <ion-label>
+          <ion-icon name="notifications" item-start></ion-icon> Activate weather notifications</ion-label>
+        <ion-toggle [(ngModel)]="weatherNotification" (click)='setWeatherMode()'></ion-toggle>
+      </ion-item>
+  
+      <ion-card-content>
+          If you want to receive a notification for the weather every day, activate it here.
+      </ion-card-content>
+  
+    </ion-card>
+  
+  </ion-content>

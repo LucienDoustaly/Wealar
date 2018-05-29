@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-card>
+
+    <ion-card-header>
+      <strong>Account Information</strong>
+    </ion-card-header>
+
+    <br>
+
+    <ion-list class='list'>
+
+      <div>
+        <strong>WEALAR_ID:</strong> {{userCredentials.wealarid}}
+      </div>
+
+      <br>
+
+      <div>
+        <strong>USERNAME:</strong> {{userCredentials.username}}
+      </div>
+      
+      <br>
+
+      <div>
+        <strong>PHONE:</strong> {{userCredentials.userphone}}
+      </div>
+
+      <br>
+
+    </ion-list>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-list>
+
+      <button ion-item (click)='goToChangeInformations()'>
+        <ion-icon name="contact" item-start></ion-icon>
+        Change information
+      </button>
+
+    </ion-list>
+  </ion-card>
+</ion-content>

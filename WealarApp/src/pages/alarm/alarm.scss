@@ -1,0 +1,45 @@
+.card-background-page {
+
+    background: #3c3c33;
+  
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  p{
+    text-align: center;
+    padding: 0 40px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #FFF;
+  }
+  
+  .card-presence {
+    position: absolute;
+    top: 10%;
+    font-size: 3.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .card-datealarm {
+    font-size: 2.0em;
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    color: #fff;
+  }
+  
+  .list {
+    margin: 0px;
+  }
+  
+}
+
+.disconnect-button{
+display: block;
+margin: auto;
+margin-bottom: 20px;
+}
