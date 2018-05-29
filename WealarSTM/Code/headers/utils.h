@@ -1,12 +1,20 @@
 #ifndef UTILS_H_INCLUDED
 #define UTILS_H_INCLUDED
 
-/* ############### DEFINE VALUES ############### */
+/**
+  * ######################################################
+  * LIBRARIES
+  * ######################################################
+  */
 
 #include <stdio.h>
 #include <string.h>
 
-/* ############### DEFINE VALUES ############### */
+/**
+  * ######################################################
+  * DEFINE VALUES
+  * ######################################################
+  */
 
 // BIT Checking
 #define CHECK_BIT(var,pos) (((var) & (1<<(pos))) != 0)
@@ -26,7 +34,6 @@
 // Digicode
 #define DIGICODE_NB_LINES 4
 #define DIGICODE_NB_COLUMNS 3
-//#define DIGICODE_SIZE 9
 #define DIGICODE_SIZE 7
 
 // Array sizes
@@ -49,17 +56,17 @@
 #define HUMIDITY_INIT 255
 
 // Temporary: waiting implementation of asking user wifi credentials
-#define WIFI_SIZE 5
+#define WIFI_SIZE 1
 
-/* ############### TYPEDEF ############### */
+/**
+  * ######################################################
+  * TYPE DEFINITION
+  * ######################################################
+  */
 
 // Temporary: waiting implementation of asking user wifi credentials
 typedef enum {
-  ISEN,
-  APPART,
-  MAISON,
-  QUENTIN,
-  LUCIEN
+  ISEN
 } Wifi;
 
 typedef enum {
@@ -113,24 +120,43 @@ typedef struct {
   bool valid;
 } Weather;
 
-/* ############### FUNCTIONS ############### */
+/**
+  * ######################################################
+  * Common Functions
+  * ######################################################
+  */
 
-uint32_t string_size(char* string);
 void string_rst(char* string, uint32_t size);
 
 void request_rst(Request* p_request);
 
 void buffer_rst();
 
+/**
+  * ######################################################
+  * Credentials Functions
+  * ######################################################
+  */
+
 void credentials_rst(WIFI_Credentials* p_credentials);
 void credentials_set(WIFI_Credentials* p_credentials, char* ssid, char* pwd);
 
+/**
+  * ######################################################
+  * Weather Functions
+  * ######################################################
+  */
+
 void weather_rst();
+
 void weather_start_data_collecting();
+
 void weather_set_temperature(int8_t temperature);
 void weather_set_humidity(int8_t humidity);
 void weather_set_luminosity(bool night);
+
 bool weather_finished_collecting();
+
 Weather weather_get();
 
 #endif // UTILS_H_INCLUDED
