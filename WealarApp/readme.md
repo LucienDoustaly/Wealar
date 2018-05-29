@@ -22,11 +22,17 @@ What things you need to install the software and how to install them
 ```
 https://nodejs.org/en/
 ```
-#### How to install Cordova and Ionic
+#### How to install Cordova and Ionic on your computer
 
 ```
-Windows :	C:\>npm install -g cordova ionic
+Windows : C:\> npm install -g cordova ionic
 Linux : $ sudo npm install -g cordova ionic
+```
+
+#### Don't forget to install node package at first
+
+```
+npm install
 ```
 
 ## Ionic
@@ -41,7 +47,6 @@ ionic start myApp tabs|blank|sidemenu|empty
 
 ```
 cd myApp
-npm install
 ionic serve -l
 ```
 
@@ -80,8 +85,10 @@ ionic cordova build Android|ios|windows
 
 
 ### Sources
-For most of the parts I find documentation on ionic official doc: https://ionicframework.com/docs/ or on the Angular official doc: https://angular.io/docs
-Only for the login I used a good template here : https://devdactic.com/login-ionic-2/
-But this version was for Ionic 2 and Angular 2
-I have to adapt some parts and create all the connexion code to our API
+[Ionic Doc](https://ionicframework.com/docs/): For most of the parts I find documentation here, for components or ionic API
+[Agular Doc](https://angular.io/docs):For technical javascript code I look in the angular documentation, like for the observable, promise or HttpClient
+
+[Login](https://devdactic.com/login-ionic-2/): Only for the login I used this good template. But this version was for Ionic 2 and Angular 2. So, I have to adapt some parts and create all the connexion code to our API
+
+
 
