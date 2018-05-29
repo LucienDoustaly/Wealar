@@ -5,6 +5,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DataProvider } from '../data/data';
 
+
+//this is the authentification provider which will share all information about authentification to each page
+
+
 export class User {
   username: string;
   wealarid: string;
@@ -44,14 +48,12 @@ export class AuthServiceProvider {
   currentUser: User;
   password: string;
 
-  httpOptions = {
+  httpOptions = { //Header for http request
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer '
     })
   };
-
-  token: string;
 
   constructor(private http: HttpClient, private settingsProvider: SettingsProvider, private dataProvider: DataProvider) {}
 
@@ -99,7 +101,7 @@ export class AuthServiceProvider {
     }
   }
 
-  public register(credentials) {
+  public register(credentials) { //not implement to the serve because we don't need it
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
@@ -111,7 +113,7 @@ export class AuthServiceProvider {
     }
   }
 
-  public changeInformation(credentials) {
+  public changeInformation(credentials) {//allow the user to change these information
     return Observable.create(observer => {
       let httpParams = {
         username: credentials.username,
@@ -137,7 +139,7 @@ export class AuthServiceProvider {
     });
   }
 
-  public firstCo(credentials) {
+  public firstCo(credentials) {//Allow the user to set these information for the first connexion
     return Observable.create(observer => {
       let httpParams = {
         username: credentials.username,
@@ -193,7 +195,7 @@ export class AuthServiceProvider {
       });
   }
 
-  public getUserInfo(): User {
+  public getUserInfo(): User { //getter for other page
     return this.currentUser;
   }
 

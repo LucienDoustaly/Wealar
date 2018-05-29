@@ -5,12 +5,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/of';
-/*
-  Generated class for the DataProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 
 interface Weather{
   code: number,

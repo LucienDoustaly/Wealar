@@ -22,7 +22,7 @@ export class SettingsPage {
 
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter() { //Do something before show the page
     let info = this.auth.getUserInfo();
     this.userCredentials.username = info['username'];
     this.userCredentials.wealarid = info['wealarid'];

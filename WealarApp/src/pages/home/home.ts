@@ -13,20 +13,14 @@ export class HomePage {
   constructor(public navCtrl: NavController, public dataProvider: DataProvider) {
     this.dataProvider.getWeatherList().subscribe(data => {
       this.weatherList = this.dataProvider.weatherData;
-      //this.todayWeather = this.weatherList[0];
-      //this.weatherList = this.weatherList.slice(1);
       console.log('weatherList',this.weatherList);
-      //console.log('todayWeather',this.todayWeather);
     });
   }
 
   doRefresh(refresher: Refresher) {
     this.dataProvider.getWeatherList().subscribe(data => {
       this.weatherList = this.dataProvider.weatherData;
-      //this.todayWeather = this.weatherList[0];
-      //this.weatherList = this.weatherList.slice(1);
       console.log('weatherList',this.weatherList);
-      //console.log('todayWeather',this.todayWeather);
       
       console.log('DOREFRESH', refresher);
       refresher.complete();
