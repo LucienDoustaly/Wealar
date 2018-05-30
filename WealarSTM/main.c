@@ -151,7 +151,7 @@ void main() {
 
           // We first format the string HTTP request to be sent via Wifi
           format_request(&request, ((g__alarm_desactivated) ? POST_ALARM_OFF : ((g__alarm_activated) ? POST_ALARM_MODE : ((g__alert_presence) ? POST_PRESENCE : POST_WEATHER))));
-          state = (need_tcp_connection) ? TCP_CONNECTION : CONFIGURE_MESSAGE;
+          state = (need_tcp_connection) ? TCP_CONNECTION : CONFIGURE_MESSAGE; // Allow the message sending process to be faster (Ask TCP connection mostly only when needed)
         }
         break;
 
