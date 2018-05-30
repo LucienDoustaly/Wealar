@@ -11,14 +11,14 @@ export class HomePage {
   weatherList: any;
 
   constructor(public navCtrl: NavController, public dataProvider: DataProvider) {
-    this.dataProvider.getWeatherList().subscribe(data => {
+    this.dataProvider.getWeatherList().subscribe(data => {//this is an observable we wait for the answer
       this.weatherList = this.dataProvider.weatherData;
       console.log('weatherList',this.weatherList);
     });
   }
 
-  doRefresh(refresher: Refresher) {
-    this.dataProvider.getWeatherList().subscribe(data => {
+  doRefresh(refresher: Refresher) {//take the pull down for argument
+    this.dataProvider.getWeatherList().subscribe(data => {//this is an observable we wait for the answer
       this.weatherList = this.dataProvider.weatherData;
       console.log('weatherList',this.weatherList);
       

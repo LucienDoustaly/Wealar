@@ -17,7 +17,7 @@ export class FirstconnectionPage {
     console.log('ionViewDidLoad FirstconnectionPage');
   }
 
-  slides = [
+  slides = [ //content of slides
     {
       title: "Welcome to the WEALAR APP!",
       description: "There is your dashboard to remote your wealar system.",

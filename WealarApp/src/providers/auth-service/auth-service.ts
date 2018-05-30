@@ -61,14 +61,14 @@ export class AuthServiceProvider {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Please insert credentials");
     } else {
-      return Observable.create(observer => {
+      return Observable.create(observer => {//creation of an observable, its works almost like promise
         let httpParams = {
           username: credentials.username,
           password: credentials.password
         };
 
-        this.http.post<Response>("https://wealarapi.herokuapp.com/public/login", httpParams, this.httpOptions)
-          .subscribe(
+        this.http.post<Response>("https://wealarapi.herokuapp.com/public/login", httpParams, this.httpOptions)//htttpResquest to wealar server
+          .subscribe(//wait for the answer
             (val) => {
               this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer '+val.data.Token);
               this.settingsProvider.setHeader(this.httpOptions);
@@ -88,12 +88,12 @@ export class AuthServiceProvider {
                 val);
               console.log("current user", this.currentUser);
             },
-            response => {
+            response => {//if error
               console.log("POST call in error", response);
               let access = false;
               observer.next(access);
             },
-            () => {
+            () => {//when it's finish
               console.log("The POST observable is now completed.");
               observer.complete();
             });

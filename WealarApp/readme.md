@@ -16,7 +16,6 @@ What things you need to install the software and how to install them
 * Ionic
 * Cordova
 
-
 ### Installing
 
 #### How to install NodeJs
@@ -50,6 +49,14 @@ ionic start myApp tabs|blank|sidemenu|empty
 ```
 cd myApp
 ionic serve -l
+```
+
+##### To launch it on android
+You need android 6.0 or more
+
+```
+cd myApp
+ionic cordova run android
 ```
 
 #### How to create new things

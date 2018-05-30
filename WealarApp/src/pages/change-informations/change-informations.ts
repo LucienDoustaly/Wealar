@@ -12,7 +12,7 @@ export class ChangeInformationsPage {
   userCredentials = { username: '', userphone: '' };
 
   constructor(private navCtrl: NavController, private auth: AuthServiceProvider, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
-    let info = this.auth.getUserInfo();
+    let info = this.auth.getUserInfo(); //get informaiton of user from the auth provider
     this.userCredentials.username = info['username'];
     this.userCredentials.userphone = info['phone'];
   }

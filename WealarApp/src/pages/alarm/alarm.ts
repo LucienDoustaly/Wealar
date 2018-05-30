@@ -16,7 +16,7 @@ export class AlarmPage {
     });
   }
 
-  doDeactivate() {
+  doDeactivate() {//if click on alarm deactive
     let alert = this.alertCtrl.create({
       title: 'Your alarm is deactivated',
       message: 'Becareful WEALAR has stopped watching your home !',
@@ -25,7 +25,7 @@ export class AlarmPage {
     alert.present();
   }
 
-  doActivate() {
+  doActivate() {//if click on alarm active
     let alert = this.alertCtrl.create({
       title: 'Your alarm is activated',
       message: 'WEALAR is now watching your home !',
@@ -35,7 +35,7 @@ export class AlarmPage {
   }
 
   ignorePresence(){
-    this.dataProvider.ignorePresence().subscribe(allowed => {
+    this.dataProvider.ignorePresence().subscribe(allowed => {//call a function of dataProvider which is an observable
       if (allowed) {
         console.log("Presence ignored");
         let alert = this.alertCtrl.create({
@@ -59,8 +59,8 @@ export class AlarmPage {
       });
   }
 
-  doRefresh(refresher: Refresher) {
-    this.dataProvider.getAlarmData().subscribe(data => {
+  doRefresh(refresher: Refresher) {//take the pull down for argument
+    this.dataProvider.getAlarmData().subscribe(data => {//this is an observable we wait for the answer
       this.alarmInfo = this.dataProvider.alarmData;
       console.log('alarmeInfo',this.alarmInfo);
       
