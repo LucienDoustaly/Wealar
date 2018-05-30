@@ -67,7 +67,7 @@ ionic g provider authService
 ionic g page home
 ```
 
-### Description of the different folder
+### Description of the different files
 * [platforms](https://ionicframework.com/docs/cli/cordova/platform/): configuration of the differents platform generate automatically:
 ```
 ionic cordova add platform Android|ios|windows
