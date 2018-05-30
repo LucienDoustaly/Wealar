@@ -1,4 +1,5 @@
 # Code of the microcontroller (STM32)
+![](https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1496309570/oghmax10nvallf86c4tn.png)
 
 Here is the microcontroller code for our **Wealar system**, we used an ***STM32L152RE*** for this project.
 
